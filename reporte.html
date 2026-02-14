@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes - Lemmy</title>
+    <link rel="stylesheet" href="reporte.css">
+</head>
+<body>
+    <header>
+        <h1>Reportes de Ventas - Lemmy</h1>
+    </header>
+
+    <main>
+        <div class="reportes">
+            <div style="margin-bottom:20px;">
+                <button id="btnActualizarReportes">Actualizar Reportes</button>
+                <button id="btnCerrarTurno" style="margin-left:10px; background-color:#900;">Cerrar Turno</button>
+            </div>
+
+            <h2>Ingresos por Medio de Pago</h2>
+            <ul id="ingresosMedioPago"></ul>
+
+            <h2>Ingresos y Cantidades por Producto</h2>
+            <table id="tablaProductos">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad Vendida</th>
+                        <th>Ingresos</th>
+                        <th>Costos</th>
+                        <th>Ganancia Neta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Datos se llenan dinámicamente -->
+                </tbody>
+            </table>
+
+            <h2>Ingresos por Producto y Medio de Pago</h2>
+<table id="tablaProductoMedioPago">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Medio de Pago</th>
+            <th>Ingresos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Datos dinámicos -->
+    </tbody>
+</table>
+
+
+            <h2>Ganancia Neta Total: S/ <span id="gananciaTotal">0.00</span></h2>
+
+            <h2>Historial de Tickets</h2>
+            <ul id="historialTickets">
+                <!-- Lista de tickets con botón reimprimir -->
+            </ul>
+
+            <div style="margin-top:40px; text-align:center;">
+                <button id="btnVolver" style="width:200px;">Volver al menú</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="reporte.js"></script>
+    <script>
+        // ===== Historial de tickets con botón reimprimir =====
+        const historialTickets = document.getElementById("historialTickets");
+
+        function actualizarHistorial() {
+            historialTickets.innerHTML = "";
+            const historialData = JSON.parse(localStorage.getItem("historialVentas")) || [];
+            historialData.forEach((ticket, index) => {
+                const li = document.createElement("li");
+                li.style.marginBottom = "5px";
+                li.textContent = `Ticket ${index + 1} - Total: S/ ${ticket.total.toFixed(2)} - Pago: ${ticket.medioPago}`;
+
+                const btnReimprimir = document.createElement("button");
+                btnReimprimir.textContent = "Reimprimir";
+                btnReimprimir.style.marginLeft = "10px";
+                btnReimprimir.addEventListener("click", () => reimprimirTicket(index));
+
+                li.appendChild(btnReimprimir);
+                historialTickets.appendChild(li);
+            });
+        }
+
+        // Llamar al cargar
+        actualizarHistorial();
+
+        // Actualizar reportes también actualiza historial
+        document.getElementById("btnActualizarReportes").addEventListener("click", () => {
+            generarReportes();
+            actualizarHistorial();
+        });
+
+        // Cerrar turno
+        document.getElementById("btnCerrarTurno").addEventListener("click", () => {
+            limpiarVentas();
+            actualizarHistorial();
+        });
+
+        // Volver al menú
+        document.getElementById("btnVolver").addEventListener("click", () => {
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>

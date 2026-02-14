@@ -1,0 +1,164 @@
+/* reporte.css - Estilo para Reportes Lemmy */
+
+/* Reset y base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* fondo negro */
+    color: #fff; /* texto blanco */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    padding: 10px 20px;
+    background-color: #111;
+    border-bottom: 2px solid #900; /* rojo oscuro */
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #ff0000; /* rojo brillante */
+    text-align: left;
+}
+
+/* Main container */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.reportes {
+    width: 95%;
+    max-width: 1100px;
+    background-color: #111;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #900;
+}
+
+/* Botones */
+button {
+    padding: 8px 15px;
+    margin: 5px 0;
+    background-color: #900; /* rojo oscuro */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #ff0000; /* rojo brillante al hover */
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Listas */
+ul {
+    list-style-type: none;
+    margin: 10px 0 20px 0;
+    padding-left: 0;
+}
+
+ul li {
+    padding: 6px 8px;
+    margin-bottom: 5px;
+    background-color: #222;
+    border-left: 4px solid #ff0; /* borde amarillo */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+thead th {
+    background-color: #900;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 8px;
+    border-bottom: 1px solid #444;
+    background-color: #111;
+}
+
+tbody tr:nth-child(even) td {
+    background-color: #1a1a1a;
+}
+
+/* Titulos secciones */
+h2 {
+    color: #ff0; /* amarillo brillante */
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Historial de tickets */
+#historialTickets li button {
+    background-color: #0a0; /* verde para reimprimir */
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+#historialTickets li button:hover {
+    background-color: #0f0;
+}
+
+/* Ganancia total */
+#gananciaTotal {
+    color: #ff0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Responsivo tablets/laptops */
+@media (max-width: 1024px) {
+    .reportes {
+        width: 100%;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    ul li {
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vender - Lemmy</title>
+    <link rel="stylesheet" href="vender.css">
+</head>
+<body>
+    <header>
+        <h1>Vender Productos</h1>
+    </header>
+
+    <main>
+        <div class="ventas">
+            <!-- Selección por categoría -->
+            <h2>Selecciona productos por categoría</h2>
+            <label for="selectCategoria">Categoría:</label>
+            <select id="selectCategoria">
+                <option value="">--Seleccionar--</option>
+                <!-- Se llenará dinámicamente desde JS -->
+            </select>
+
+            <label for="selectProducto">Producto:</label>
+            <select id="selectProducto">
+                <option value="">--Seleccionar--</option>
+            </select>
+
+            <!-- Tipo de venta (unidad, balde, oferta) -->
+            <div id="divTipoVenta" style="display:none;">
+                <label for="selectTipoVenta">Tipo de venta:</label>
+                <select id="selectTipoVenta">
+                    <!-- Se llena dinámicamente según el producto -->
+                </select>
+            </div>
+
+            <label for="cantidadProducto">Cantidad:</label>
+            <input type="number" id="cantidadProducto" value="1" min="1">
+
+            <button id="btnAgregarProducto">Agregar al Ticket</button>
+
+            <!-- Ticket actual -->
+            <h2>Ticket</h2>
+            <ul id="listaTicket"></ul>
+
+            <button id="btnCancelarVenta">Cancelar Venta</button>
+
+            <!-- Contenedor dinámico para medios de pago -->
+            <h2>Medio de pago</h2>
+            <div id="contenedorMediosPago">
+                <!-- Se llenará dinámicamente desde JS según lo creado en Dashboard -->
+            </div>
+
+            <p>Total: S/ <span id="total">0.00</span></p>
+
+            <button id="btnImprimirTicket">Imprimir Ticket</button>
+
+            <!-- Botón volver al menú separado y al final -->
+            <div style="margin-top:60px; text-align:center;">
+                <button id="btnVolver" style="width:200px;">Volver al menú</button>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="vender.js"></script>
+</body>
+</html>

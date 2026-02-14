@@ -1,0 +1,96 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+header h1 {
+    color: #ff0000;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 10px;
+    font-weight: bold;
+    width: 200px;
+    background-color: #ff0000;
+    color: #fff;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.medioPago {
+    width: 200px;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+#listaTicket {
+    list-style: none;
+    margin-top: 10px;
+    padding: 0;
+    max-height: 300px;  /* Para tickets largos */
+    overflow-y: auto;
+    border: 1px solid #ff0000;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #111;
+}
+
+#listaTicket li {
+    margin: 5px 0;
+    font-size: 1.5rem; /* cantidad y producto más grande */
+    font-weight: bold;
+}
+
+#divTipoVenta {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#selectTipoVenta {
+    width: 220px;
+    font-size: 1rem;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+}
+
+#btnImprimirTicket, #btnCancelarVenta {
+    width: 200px;
+    background-color: #ff0000;
+    color: #fff;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#btnVolver {
+    width: 200px;      
+    margin-top: 60px;  
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    background-color: #ff0000;
+    color: #fff;
+}

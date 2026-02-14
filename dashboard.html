@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Lemmy</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>Dashboard - Configuración</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Categorías</h2>
+            <ul id="listaCategorias"></ul>
+            <input type="text" id="nuevaCategoria" placeholder="Agregar nueva categoría">
+            <button id="btnAgregarCategoria">Agregar Categoría</button>
+        </section>
+
+        <section>
+            <h2>Medios de Pago</h2>
+            <ul id="listaMediosPago"></ul>
+            <input type="text" id="nuevoMedioPago" placeholder="Agregar nuevo medio de pago">
+            <button id="btnAgregarMedio">Agregar Medio de Pago</button>
+        </section>
+
+        <button id="btnVolver">Volver al menú</button>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemmy - Bar Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Lemmy</h1>
+    </header>
+
+    <main>
+        <div class="menu">
+            <button onclick="window.location.href='agregar.html'">Agregar Productos</button>
+            <button onclick="window.location.href='vender.html'">Vender</button>
+            <button id="btnCerrarTurno">Cerrar Turno</button>
+            <button onclick="window.location.href='dashboard.html'">Dashboard</button>
+        </div>
+    </main>
+
+    <script>
+        // Botón Cerrar Turno → Abrir reporte.html
+        document.getElementById("btnCerrarTurno").addEventListener("click", function(){
+            window.location.href = "reporte.html";
+        });
+
+        // Inicializar categorías y medios de pago si no existen
+        if(!localStorage.getItem("categorias")) {
+            const categorias = ["cerveza","tragos","sin alcohol","otros"];
+            localStorage.setItem("categorias", JSON.stringify(categorias));
+        }
+        if(!localStorage.getItem("mediosPago")) {
+            const mediosPago = ["efectivo","yape","plin","tarjeta"];
+            localStorage.setItem("mediosPago", JSON.stringify(mediosPago));
+        }
+    </script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("./service-worker.js")
+      .then(() => console.log("Service Worker OK"))
+      .catch(err => console.error("SW error", err));
+  });
+}
+</script>
+
+
+    
+</body>
+</html>

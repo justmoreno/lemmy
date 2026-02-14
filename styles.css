@@ -1,0 +1,58 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+header {
+    padding: 10px 20px;
+}
+
+h1 {
+    color: #ff0000; /* rojo */
+    font-size: 2rem;
+    text-align: left;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+/* Colores variados como pediste */
+#btnAgregar { background-color: #ff0000; color: #fff; }
+#btnVender { background-color: #ffff00; color: #000; }
+#btnCerrar { background-color: #ff6600; color: #fff; }
+
+button:hover {
+    opacity: 0.8;
+}

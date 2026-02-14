@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Productos - Lemmy</title>
+    <link rel="stylesheet" href="agregar.css">
+</head>
+<body>
+    <header>
+        <h1>Agregar Productos</h1>
+    </header>
+
+    <main>
+        <form id="formAgregar">
+            <label>Nombre del producto:</label>
+            <input type="text" id="nombre" required>
+
+            <label>Categoría:</label>
+            <select id="categoria" required>
+    <!-- Opciones cargadas dinámicamente desde localStorage -->
+</select>
+
+
+            <label>Costo por unidad:</label>
+            <input type="number" id="costo" min="0" step="0.01" required>
+
+            <label>Precio por unidad:</label>
+            <input type="number" id="precioUnidad" min="0" step="0.01" required>
+
+            <!-- Opciones de venta especiales -->
+            <fieldset>
+                <legend>Opciones de venta especiales</legend>
+
+                <!-- Balde (solo para cervezas) -->
+                <div>
+                    <input type="checkbox" id="tieneBalde">
+                    <label for="tieneBalde">Vende por balde (solo cervezas)</label>
+                </div>
+                <div id="configBalde" style="display:none;">
+                    <label>Cantidad de unidades por balde:</label>
+                    <input type="number" id="cantidadBalde" min="2" step="1">
+                    <label>Precio por balde:</label>
+                    <input type="number" id="precioBalde" min="0" step="0.01">
+                </div>
+
+                <!-- Oferta (para cualquier producto) -->
+                <div>
+                    <input type="checkbox" id="tieneOferta">
+                    <label for="tieneOferta">Tiene oferta especial</label>
+                </div>
+                <div id="configOferta" style="display:none;">
+                    <label>Cantidad de unidades por oferta:</label>
+                    <input type="number" id="cantidadOferta" min="1" step="1">
+                    <label>Precio por oferta:</label>
+                    <input type="number" id="precioOferta" min="0" step="0.01">
+                </div>
+            </fieldset>
+
+            <label>Stock inicial:</label>
+            <input type="number" id="stock" min="0" required>
+
+            <button type="submit">Agregar Producto</button>
+        </form>
+
+        <h2>Productos agregados</h2>
+        <table id="tablaProductos">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio Unidad</th>
+                    <th>Costo</th>
+                    <th>Stock</th>
+                    <th>Opciones Especiales</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Productos se agregan aquí -->
+            </tbody>
+        </table>
+
+        <div style="margin-top:40px; text-align:center;">
+            <button id="btnVolver">Volver al menú</button>
+        </div>
+    </main>
+
+    <script src="agregar.js"></script>
+    <script>
+        // Mostrar/ocultar campos de balde y oferta según checkbox
+        document.getElementById("tieneBalde").addEventListener("change", function(){
+            document.getElementById("configBalde").style.display = this.checked ? "block" : "none";
+        });
+
+        document.getElementById("tieneOferta").addEventListener("change", function(){
+            document.getElementById("configOferta").style.display = this.checked ? "block" : "none";
+        });
+    </script>
+
+<script>
+    function cargarCategorias() {
+        const selectCategoria = document.getElementById("categoria");
+        selectCategoria.innerHTML = ""; // Limpiar opciones
+        const categorias = JSON.parse(localStorage.getItem("categorias")) || ["cerveza","tragos","sin alcohol","otros"];
+        categorias.forEach(cat => {
+            const opt = document.createElement("option");
+            opt.value = cat;
+            opt.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+            selectCategoria.appendChild(opt);
+        });
+    }
+
+    // Cargar al iniciar la página
+    cargarCategorias();
+</script>
+
+
+</body>
+</html>

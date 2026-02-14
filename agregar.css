@@ -1,0 +1,99 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+header h1 {
+    color: #ff0000;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+    margin-bottom: 30px;
+    background-color: #111;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+fieldset {
+    border: 1px solid #ff0000;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+legend {
+    color: #ff0;
+    font-weight: bold;
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+}
+
+button {
+    font-weight: bold;
+    cursor: pointer;
+    width: 200px;
+    background-color: #ff0000;
+    color: #fff;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #fff;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+td button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    margin: 2px;
+}
+
+#btnVolver {
+    display: block;
+    width: 200px;
+    margin: 40px auto;
+    background-color: #ff0000;
+    color: #fff;
+}
+
+/* Campos de balde y oferta dentro de fieldset */
+#configBalde, #configOferta {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+#configBalde label, #configOferta label {
+    display: block;
+    margin-top: 5px;
+}
